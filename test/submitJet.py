@@ -8,26 +8,21 @@ config.General.transferLogs = True
 config.JobType.pluginName = 'Analysis'
 config.JobType.psetName = 'testPrefiringJet_cfg.py'
 
-config.Data.splitting = 'FileBased'
+config.Data.splitting = 'LumiBased'
 # config.Data.splitting = 'Automatic'
 config.Data.inputDBS = 'global'
-config.Data.outLFNDirBase = '/store/user/%s/prefiringJet' % (getUsernameFromSiteDB())
+config.Data.outLFNDirBase = '/store/group/phys_top/gkrintir/prefiringJet'
 config.Data.publication = False
 #config.Data.allowNonValidInputDataset = True
-config.Data.unitsPerJob = 1
+config.Data.unitsPerJob = 15
 #config.JobType.numCores = 4
-config.Data.useParent = True
+config.Data.useParent = False
 
-config.Site.storageSite = 'T2_US_Wisconsin'
-#config.Site.storageSite = 'T2_CH_CERN'
+#config.Site.storageSite = 'T2_US_Wisconsin'
+config.Site.storageSite = 'T2_CH_CERN'
 
 pds = [
-    '/JetHT/Run2017F-31Mar2018-v1/MINIAOD',
-    '/JetHT/Run2017B-31Mar2018-v1/MINIAOD',
-    '/JetHT/Run2016H-03Feb2017_ver3-v1/MINIAOD',
-    '/JetHT/Run2016H-03Feb2017_ver2-v1/MINIAOD',
-    '/SingleMuon/Run2017F-31Mar2018-v1/MINIAOD',
-    '/MET/Run2017F-31Mar2018-v1/MINIAOD',
+    '/HighEGJet/Run2017G-17Nov2017-v2/AOD'
 ]
 
 if __name__ == '__main__':
@@ -49,7 +44,7 @@ if __name__ == '__main__':
         config.Data.outputDatasetTag = conditions
         config.Data.inputDataset = pd
         if 'Run2017' in conditions:
-            config.Data.lumiMask ='/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions17/13TeV/ReReco/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt'
+            config.Data.lumiMask ='/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions17/5TeV/ReReco/Cert_306546-306826_5TeV_EOY2017ReReco_Collisions17_JSON.txt'
         elif 'Run2016' in conditions:
             config.Data.lumiMask ='/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions16/13TeV/ReReco/Final/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt'
         submit(config)

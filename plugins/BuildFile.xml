@@ -7,4 +7,8 @@
 <use name="DataFormats/VertexReco"/>
 <use name="DataFormats/L1Trigger"/>
 <use name="PhysicsTools/SelectorUtils"/>
+<use name="DataFormats/HLTReco"/>
+<use name="HLTrigger/HLTcore"/>
+<use name="CondFormats/HLTObjects"/>
+<use name="CondFormats/DataRecord"/>
 <flags EDM_PLUGIN="1"/>
